@@ -206,7 +206,7 @@ function ajax(o) {
 	// For CORS to send a "simple" request (to avoid a preflight check), the following methods are allowed: GET/POST/HEAD,
 	// see https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Simple_requests
 
-	var isSimpleCors = o.crossDomain && ['GET', 'POST', 'HEAD'].indexOf(type) !== -1;
+	var isSimpleCors = o.crossDomain && !isJsonContentType && ['GET', 'POST', 'HEAD'].indexOf(type) !== -1;
 
 	if (isPost) {
 		data = (isJsonContentType && !isSimpleCors) ?
