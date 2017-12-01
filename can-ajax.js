@@ -8,7 +8,8 @@ var param = require("can-param");
 
 /**
  * @module {function} can-ajax can-ajax
- * @parent can-infrastructure
+ * @parent can-dom-utilities
+ * @collection can-infrastructure
  *
  * Make an asynchronous HTTP (AJAX) request.
  *
@@ -110,7 +111,7 @@ var _xhrResp = function (xhr, options) {
 		case "application/javascript":
 		case "application/x-javascript":
 		case "json":
-			return JSON.parse(xhr.responseText);
+			return xhr.responseText && JSON.parse(xhr.responseText);
 		default:
 			return xhr.responseText;
 	}
